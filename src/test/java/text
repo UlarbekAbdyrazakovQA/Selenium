@@ -1,0 +1,373 @@
+
+
+
+I simply need to find Selenium library dependency and add it to my POM.xml
+* where do i find that dependency?
+ - www.mvnrepository.com
+
+
+ DATE: 4 May------------------------------------------------------------------------------------------------------
+
+
+                  same
+ driver.get(url)  <=>  driver.navigate().to(url)
+
+
+ Session => When we launch browser using selenium , it launches in new session
+
+
+ Method:
+
+ getCurrentUrl() ->
+
+
+
+ DATE: 8 May ------------------------------------------------------------------------------------------------------
+
+ Locators
+
+ Cashwise login functionality
+
+ Scenarious of testing functionality
+
+ 1.Happy path-> positive scenario типа баржокту туура жазып кирип коргон учур
+ 2.Try to login with wrong credentials
+ 3.Pass username and leave password empty and try to login and vice versa
+ 4.Don't pass anything and try to login
+
+ Normally we find bug while we checking manually
+
+ These scenarious MUST be automated so that in the future code changes, it will be easy to check if new changes wouldn't
+ break the existing functionalities.
+
+ There are 8 ways to find a web element using selenium
+
+
+ Expected result  =  Actual result (тестингде ушул экоо бирдей болуш керек)
+
+ Synchronization in Selenium
+
+ *Code in IntelliJ and Browser must be synchronized. Otherwise it throws Exception.
+
+ 1. How to pause the code execution?
+ -Thread.sleep(milli seconds)
+
+DATE: 9 May -----------------------------------------------------------------------------------------------------------
+
+Talking is important in interview
+
+Steps of testing anything:
+
+1. Firstly I Get the requirement
+
+Synchronization issue - это когда код работает быстрее вебсайта и код не замечает вебэлементы
+
+*Once we find that Web element ,what we do?
+-To perform the operation to that web element
+
+*What is WebElement in selenium?
+- It is a data type that can store located web element
+
+*What happens when seleniium doesn't find an element?
+-it throws NoSuchElementException
+
+
+Dynamic locators лучше не выбирать потому что они могут меняться
+
+//div[4] 4чу див берет только если алар бир лэвэлде болсо типа sibling болот
+ если ичинде толтура div ар кандай левелде болсо аларды группа кылып алсак болот
+
+ (//div)[4] скобка менен баарын бир левел кылып алдык анан тортунчусун таптык
+
+//div[@class='jumbotron']  or //*[@class='jumbotron']  -> найди все div(если там * то это значит все тэги) у
+которых есть class по имени "jumbotron"
+
+
+
+//*[.="your text"] - найди мне все тэги с таким текстом деген(to locate element with outer text
+
+
+/html/body/div[2]/text()
+
+
+//*[@id="user-name"]
+
+
+DATE: 11 May-----------------------------------------------------------------------------------------------------------
+
+*NoStyle
+
+
+
+*Dropdown
+How to test dropdowns:
+-1.Default selected option
+-2.Check list of options
+-3.Select different option and check if it is selected
+-4.Test th functionality. When you select some option
+
+*How to get current selected option?
+- method called getFirstSelectedOption
+
+*
+
+
+----------------
+2 types of Alerts:
+1)Html based alerts
+2)Javascript based alerts(
+
+
+
+DATE:18 May-----------------------------------------------------------------------------------------------------------
+
+SOFT SKILLS
+
+
+- Product Backlog -> list of all desired requirements. So many features, functionalities, changes,tasks are
+going to be here (продуктка кошкусу келген функциялардын списогу ,толтура болушу мумкун ал списокто).
+-In a team 8 people :
+                    3 backend
+                    1 front end
+                    2 QA
+                    1 manual
+                    1 Business analyst
+
+
+- Tell me about your team:  I am in a scrum team , in agile environment , we usually have in our team 3 or 4 backend
+developers because sometimes one of our backend developers could switch to the other team if there was need for backend
+and also we were working in crossplatform . And we had 1 manual and 2 QA engineers for automation, 1 frontend and
+1 ux/ui designer.
+
+
+
+
+------------   BUG   ------------------
+
+        Bug life cycle
+1)Summary - short summary about bug ticket (ex: result for flight search is coming same for all parameters)
+2)Description - more detailed information about bug(ex: when you choose any city for departure or destination and
+search flight, the search result is giving the same data)
+
+Steps to reproduce:
+-1.go to app blazedemo
+-2. select any city for departure and destination
+-3. click search flight button
+
+Expected result:
+ The flights that belong to the selected cities should come
+Actual result:
+ Showing the same flight table for any city i choose
+
+Attachment. Screenshot.
+
+3)Severity: How critical is this BUG? ex: critical, major, minor, low
+
+4)Priority: When it needs to be fixed? High, medium, low
+
+
+
+
+-Reproduce -> баг тапкандан кийин кайра кайра текшерип уверенно болуш
+
+
+--------
+Where do you create bug?
+-Software Development Management System/Tool/Platform
+a.JIRA
+b.Trello
+c.CRM platforms
+d.On click
+
+
+
+Troubleshooting - is analyzing to find the root of issue
+
+Build <-> Deployment (they are same)
+
+
+
+Share conflict disagreement? (interview question)
+
+- Just recently i got a disagreement with dev team because the bug which i found wasn't fixed but in Jira they mentioned
+that it was fixed , then i just assigned back that  bug to dev team and they were crazy about it , then we just communicate
+me , BA and dev team and we realised that we were both right and the issue was in server side , i mean devops side which
+i don't understand , then they just fixed and they deployed new code base and everything was good.
+
+DATE:25 MAY    -----------------------------------------------------------------------
+
+-NOSUCHELEMENEXCEPTION ->findelement() throws this exception if it cannot find webelement
+-NOSUCHFRAMEEXECPTION ->
+
+
+
+
+DATE: 30 MAY-------------------------------------------------------------------------------------------------------
+
+
+***************    Utilities    *************
+
+1) We create a package called utils or utilities
+2)Here we will be creating many utility classes that are going to be useful and reusable
+3)Utilities can be for anything. As long as they are useful when we do automation testing, and also they should be
+ universal so that i can use many times.
+
+4)Utilities should be easy to use. No complication. No extra lines of code.
+5)Libraries normally already have some utilities. Even Java have utilities.
+6)The purpose of the Utility should be easy to use without looking into the backend. If something is always used and
+long lines of code, this can be utility so that we avoid writing the same long code again and again.
+
+
+implicitwait?
+
+ans: it is a setting that gives a chance to webelement to be located in that duration of time.
+
+
+Question: Html based popup кантип селениумда жоготобуз?
+
+-making constructor private will prevent to creation of object from your class from somewhere else
+
+
+
+DATE: 31 May----------------------------------------------------------------------------------------------------
+
+                                                 SOFT SKILLS
+
+                        How many environments we are testing? -QA-> Staging(проверяем с реальными )-> Production
+                                                                            (данными от продакшна  )
+Types of Testing:
+-Regression testing - to make sure new functionality did not break old functionalities. We do automating regression test.
+We do get report about regression testing.(Or regression is also when we are running all tests)
+
+- Smoke Testing -> only the main functionalities of the application.(it can be automated)
+
+- Ad hod testing ->
+
+- Backend testing -> testing the database, to make sure data in UI is accurate and matches the data in the backend
+
+- UAT - user acceptance testing , ususally done by PO,BA,or actual users, to make sure software was built the way they
+wanted.
+
+- Performance testing how the system is handling several users using the application at the same time, what is the
+responses time of certain button or functionality.
+
+-Integration testing =>making sure different units,components, modules of the application are working together as one.
+
+-Functional testing -> all the functions of the applications are working per requirements.
+
+-Unit testing -> testing your own code, usually done by the developers.
+
+-Sanity testing -> almost the same as smoke testing, quick and basic test of important functionalities. Making sure
+nothing broke after the code change.
+
+
+
+
+
+
+DATE: 1 JUNE----------------------------------------------------------------------------------------------
+
+
+QA environment?
+
+- It is separate server where developers/devops are deploying the production type like application with ONE purpose.
+For TESTING ONLY.
+- Simply this is NOT going to look like a real and main URL for the application.
+
+Ex: www.qa.chase.com(for testing)
+    www.chase.com(the real one)
+
+* There can be many environments for QA such as
+
+www.qa1.chase.com
+www.qa2.chase.com
+www.qa3.chase.com
+www.qa4.chase.com
+
+
+* Companies try to put bigger servers for the QA environments. Because it should simulate the real production
+environment.
+
+Test Data
+-this a data which we will need to test something
+
+Where do we get the test data?
+- It is not from the requirement.
+- Pre requirements: the information that we need before we test.
+
+-With help of MAVEN it is automating the management of  dependencies and building the project.
+
+         Data Driven Development Approach(PROPERTIES)
+
+- We don't write the data inside our codes.
+- We import it from outside centralized place.
+
+When we write data inside our code, it is called HARD CODED.
+
+
+DATE: 2 JUNE-----------------------------------------------------------------------------------------------------------
+
+                JUNIT(it is a Tool, framework)
+
+
+-Junit primarily used for unit testing
+
+* What is Unit Testing?
+- Testing the source code. Testing your own code
+
+*Which test method is going to run first?
+-JUnit doesn't guarantee to run any if the tests in order.
+-JUnit
+
+-Assertion help us to chech expected result and actual result.
+
+
+DATE: 5 JUNE----------------------------------------------------------------------------------------------------------
+
+
+Build: building a java project
+1.writing the code
+2.compile the code
+3.testing the code
+4.managing the dependencies
+5.Extracting the code for development as library/jar file
+and in order to automate this things MAVEN is helpful.
+
+-We are testing something according to expected behaviour of it.(ex: если log out кылып атсан можешь url чекнуть или
+например you r logged out деп чыгатурган popup бар болсо ошонун текстин эле алып текшерип корсок болот)
+
+-There maybe many check points(assertions).
+-Whenever assertion fails it will stop there.
+
+
+                PAGE OBJECT MODEL
+
+-A design pattern used in selenium for creating an object repository for web pages. The main idea behind this pattern
+is to create a class for each web page or section of a web page that contains
+
+
+
+DATE: 7 JUNE-------------------------------------------------------------------------------------------------------
+
+                                Soft Skills
+
+
+-Say "No" to others is a good weakness, "Public speaking",
+
+Environments:
+            1)Dev - www.dev.com
+            2)QA - www.qa.com
+            3)Staging - www.staging.com(qa engineers test but with copy of real data)
+            4)Production
+
+
+
+
+
+
+
+
+
+
+
+
